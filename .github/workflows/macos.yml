@@ -17,7 +17,7 @@ jobs:
           git clone https://github.com/EmilyBourne/pdi_spack.git spack/var/spack/repos/pdi
           spack repo add spack/var/spack/repos/pdi
           spack compilers
-          spack concretize
+          spack spec pdi@1.9
           export SPACK_DEBUG_LOG_DIR=spack-logs
           export SPACK_VERBOSE=1
           export SPACK_DEBUG=1
