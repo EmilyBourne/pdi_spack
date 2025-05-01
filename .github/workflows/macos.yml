@@ -10,9 +10,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Build
         run: |
-          # 1. Get and enable Spack
-          git clone https://github.com/spack/spack.git
-          . spack/share/spack/setup-env.sh
+          # 1. Get and enable Spack 0.23.1
+          wget https://github.com/spack/spack/releases/download/v0.23.1/spack-0.23.1.tar.gz
+          tar -xf spack-0.23.1.tar.gz
+          rm spack-0.23.1.tar.gz
+          . spack-0.23.1/share/spack/setup-env.sh
           # 2. Get and enable this spack repo
           git clone https://github.com/EmilyBourne/pdi_spack.git spack/var/spack/repos/pdi
           spack repo add spack/var/spack/repos/pdi
@@ -26,4 +28,5 @@ jobs:
       - name: Logs
         if: always()
         run: |
-          ls spack-logs
+          ls /var/folders/hn/k7g0_sh57112t0xtjxcjcm5r0000gn/T/runner/spack-stage/spack-stage-pdi-1.9.0-zqfhsh5nui5ks46i4x2dv4seo4ogw26r/spack-build-out.txt
+          cat /var/folders/hn/k7g0_sh57112t0xtjxcjcm5r0000gn/T/runner/spack-stage/spack-stage-pdi-1.9.0-zqfhsh5nui5ks46i4x2dv4seo4ogw26r/spack-build-out.txt
