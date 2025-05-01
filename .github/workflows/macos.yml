@@ -16,6 +16,7 @@ jobs:
           # 2. Get and enable this spack repo
           git clone https://github.com/EmilyBourne/pdi_spack.git spack/var/spack/repos/pdi
           spack repo add spack/var/spack/repos/pdi
+          spack compiler find
           spack compilers
           spack spec pdi@1.9
           export SPACK_DEBUG_LOG_DIR=spack-logs
